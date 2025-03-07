@@ -27,3 +27,38 @@ First day of starting this, lets do a little bit of requirement gathering. Thing
     - Tabs [Vercel's Tabs](https://vercel.com/geist/tabs)
     - Typography [Vercel's Typography](https://vercel.com/geist/typography)
 
+- Clickable Check Boxes ( Doesn't Have to preserve state across page refereshes, but i mean just make it checkable atleast )
+
+---
+
+# Understanding Abstract Syntax Trees (AST):
+It is a tree representation of structured text. It captures the **hierarchical** structure of the document, making it easier to transform and process. In our case, for markdown, it lets you:
+
+- Recognize blocks like headings,paragraphs,lists, and code blocks.
+- Process inline elements like bold,italic and links.
+
+Eg:
+```md
+~ This:
+
+# Title
+**Bold** text
+```
+```bash
+~ Gets converted to:
+
+Root
+ ├── Heading(level=1) → "Title"
+ ├── Paragraph
+     ├── Bold → "Bold"
+     ├── Text → " text"
+```
+
+# Steps:
+1. Tokenize the input (lexing)
+    - Split the input by new lines
+    - For each line, identify the type of block:
+        - Headings, 
+        - Lists, 
+        - Code blocks (Starts with tripple back-ticks; or indented lines; buut im thinking just make it tripple back-ticks because i want tab to just be like tab yk like just to indent instead of the `>`)
+
